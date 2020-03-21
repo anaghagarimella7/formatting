@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
-import {data } from './data';
-
+import { Component, OnInit } from '@angular/core';
+import {data} from '../data';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css','./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent {
-  title = 'format';
+export class HomeComponent implements OnInit {
   dat=[
     new data('FruitPreserves','April',3950.00),
     new data('Soups','April',1260.00),
@@ -21,4 +19,9 @@ export class AppComponent {
   ];
   
   d=this.dat[0];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

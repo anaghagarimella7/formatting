@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <style>
+      html,body { 
+  text-align: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+    </style>
+  </head>
+    <body style="font-family: serif;">
+      <p> Formatting for : <strong>Category</strong></p><hr>
+<strong>  Text-alignment: </strong>
+      <select  style="width: 20%; " class=" form-control" (change)="onAlignSelect($event)">
+    <option value="left">Left</option>
+    <option value="right">Right</option>
+  </select>
+  <br>
+  <button class="btn btn-primary" (click)="onClickFormatApply();">Apply</button>
+   &nbsp;
+   <button class="btn btn-primary" (click)="onClickFormatCancel();">Cancel</button>
+<br><br>
+   <p *ngIf="!buttonFormatApply; else Apply"></p>
+   <ng-template #Apply>
+     
+   <table class="table table-bordered table-dark">
+     <tr>
+       <th>Category</th>
+       <th>Month</th>
+       <th>Revenue</th>
+     </tr>
+         
+     <tr style="font-family: serif;" *ngFor="let x of dat" >
+       <td  [ngStyle]="{'text-align':alignment}">{{x.category}}</td>
+     
+       <Td >{{x.month}}</Td>
+      <td>{{x.revenue}}</td>
+       </tr>
+   </table>
+ </ng-template>
+    </body>
+</html>

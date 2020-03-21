@@ -1,0 +1,39 @@
+<html>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+<table class="table table-bordered table-dark">
+    <tr>
+      <th><a routerLink="/format/category">Category</a> <br><button class="btn btn-primary" ><i class="fa fa-eercast"></i></button></th>
+         <th> <a routerLink="/format/month">Month</a> <br><button class="btn btn-primary" ><i class="fa fa-calendar"></i></button></th>
+      <th><a routerLink="/format/revenue">Revenue</a> <br><button class="btn btn-primary" ><i class="fa fa-credit-card-alt"></i></button></th>
+
+     
+    </tr>
+        
+    <tr style="font-family: serif;font-size: 15px;" *ngFor="let x of dat" >
+      <Td >{{x.category}}</Td>
+    
+      <Td >{{x.month}}</Td>
+        <td >{{x.revenue}}</td>
+        
+            
+   </tr>
+    
+  </table>
+  </body>
+  </html>

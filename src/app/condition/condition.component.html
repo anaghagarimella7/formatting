@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <style>
+            .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+html,body { 
+  text-align: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+        </style>
+        </head>
+        <body style="font-family: serif;">
+          <strong> Column1:</strong>
+          <select class="select-css"  style="width: 21%; display: inline; " class=" form-control" (change)="onCol1($event)">
+            <option [value]="i" *ngFor="let i of displayedColumns">{{i}}</option>
+          </select>
+        
+         
+       
+       &nbsp;
+       <strong> Operator1:</strong>
+         <select  style="width: 20% ; display: inline;" class=" form-control" (change)="onOp1($event)">
+          <option [value]="i" *ngFor="let i of operators">{{i}}</option>
+        </select>
+        &nbsp;
+        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        
+      
+        <strong>  Value1: </strong><input style="width: 20% ; display: inline;" type="text" class="form-control" (input)="onVal1($event)"><br>
+         <br>
+         <strong> FontStyle1: </strong>
+         <select  style=" width: 20% ;display: inline;" class=" form-control" (change)="onFont1($event)">
+          <option [value]="i" *ngFor="let i of fonts">{{i}}</option>
+        </select>
+        &nbsp;
+      
+        <strong>  FontSize1 : </strong>
+         <select  style="width: 20%; display: inline; " class=" form-control" (change)="onFontSize1($event)">
+          <option [value]="i" *ngFor="let i of sizes">{{i}}</option>
+        </select>
+        &nbsp;
+      
+        <strong>  FontColor1:</strong> <input style="width: 20% ; display: inline;" type="color"  class="form-control" (input)="onFontColor1($event)"><br>
+        <br>
+        <strong> TextColor1: </strong><input style="width: 20% ; display: inline;" type="color"  class="form-control" (input)="onTextColor1($event)"><br>
+      
+         <br><hr><br>
+          
+         <strong> Column 2: </strong>
+         
+        <select  style="width: 21% ; display: inline;" class=" form-control" (change)="onCol2($event)">
+          <option [value]="i" *ngFor="let i of displayedColumns">{{i}}</option>
+        </select>
+       &nbsp;
+       <strong> Operator2: </strong>
+         <select  style="width: 20%; display: inline; " class=" form-control" (change)="onOp2($event)">
+          <option [value]="i" *ngFor="let i of operators">{{i}}</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <strong>  Value2:</strong> <input style="width: 20% ; display: inline;" type="text" class="form-control" (input)="onVal2($event)"><br>
+         
+      <br>
+      <strong>  FontStyle2: </strong>
+         <select  style="width: 20% ; display: inline;" class=" form-control" (change)="onFont2($event)">
+          <option [value]="i" *ngFor="let i of fonts">{{i}}</option>
+        </select>
+      &nbsp;
+      <strong>  FontSize2 : </strong>
+         <select  style="width: 20% ; display: inline;" class=" form-control" (change)="onFontSize2($event)">
+          <option [value]="i" *ngFor="let i of sizes">{{i}}</option>
+        </select>
+      &nbsp;
+      <strong> FontColor2:</strong> <input style="width: 20% ; display: inline;" type="color"  class="form-control" (input)="onFontColor2($event)"><br>
+         <br>
+         <strong> TextColor2: </strong><input style="width: 20% ; display: inline;" type="color"  class="form-control" (input)="onTextColor2($event)"><br>
+      
+<br><br>
+  
+<p *ngIf="!addCol; else AddCol"></p>
+       <ng-template #AddCol>
+        <strong>  Column: </strong>
+        <select  style="width: 20% ; display: inline;" class=" form-control" (change)="onClickColumn($event)">
+          <option [value]="i" *ngFor="let i of displayedColumns">{{i}}</option>
+        </select>
+       &nbsp;
+       
+       <strong> FontFamily: </strong>
+        <select  style="width: 20%; display: inline; " class=" form-control" (change)="onFonts($event)">
+         <option [value]="i" *ngFor="let i of fonts">{{i}}</option>
+       </select>
+     &nbsp;
+       
+     <strong> FontSize: </strong>
+        <select  style="width: 20%; display: inline; " class=" form-control" (change)="onFontSizes($event)">
+         <option [value]="i" *ngFor="let i of sizes">{{i}}</option>
+       </select>
+       <br>
+       <br>
+       <strong> FontColor:</strong> <input style="width: 20% ; display: inline;" type="color"  class="form-control" (input)="onFontColors($event)">
+        &nbsp;
+        <strong> TextColor: </strong><input style="width: 20% ; display: inline;" type="color"  class="form-control" (input)="onTextColors($event)"><br>
+                
+        <br><br>
+        
+       </ng-template>
+       <button class="btn btn-primary" (click)="onAdd()" >  Add Column   </button><br><br>
+  <button class="btn btn-primary" (click)="onClickConditionApply();">Apply</button>
+  &nbsp;
+  <button class="btn btn-primary" (click)="onClickConditionCancel();">Cancel</button>
+  &nbsp;
+<hr>
+<p *ngIf="!buttonConditionApply; else Apply"></p>
+    <ng-template #Apply>
+      
+    <table class="table table-bordered">
+      <tr>
+        <th>Category</th>
+        <th>Month</th>
+        <th>Revenue</th>
+      </tr>
+          
+      <tr style="font-family: serif;" *ngFor="let x of dat" >
+        <Td *ngIf="Col=='category'; else no1" [ngStyle]="{'background-color':fontcolor,'font-family':font,'font-size.px':fontsize,'color':textcolor}">{{x.category}}</Td>
+      <ng-template #no1>
+        <td>{{x.category}}</td>
+      </ng-template>
+        <Td *ngIf="Col=='month' ;else no" [ngStyle]="{'background-color':fontcolor,'font-family':font,'font-size.px':fontsize,'color':textcolor}">{{x.month}}</Td>
+        <ng-template #no>
+          <td>{{x.month}}</td>
+        </ng-template>
+        <td *ngIf="col1=='revenue' &&op1=='<' && x.revenue<val1" [ngStyle]="{'background-color':fontcolor1,'font-family':font1, 'font-size.px':fontsize1,color:textcolor1}" >{{x.revenue| currency}}</td>
+      <td *ngIf="col1=='revenue' && op1=='<=' && x.revenue<=val1" [ngStyle]="{'background-color':fontcolor1,'font-family':font1, 'font-size.px':fontsize1,color:textcolor1}" >{{x.revenue| currency}}</td>
+      <td *ngIf="col1=='revenue' && op1=='>' && x.revenue>val1" [ngStyle]="{'background-color':fontcolor1,'font-family':font1, 'font-size.px':fontsize1,color:textcolor1}" >{{x.revenue| currency}}</td>
+      <td *ngIf="col1=='revenue' && op1=='>=' && x.revenue>=val1" [ngStyle]="{'background-color':fontcolor1,'font-family':font1, 'font-size.px':fontsize1,color:textcolor1}" >{{x.revenue| currency}}</td>
+         <td *ngIf="col1=='revenue' && op1=='=' && x.revenue==val1" [ngStyle]="{'background-color':fontcolor1,'font-family':font1, 'font-size.px':fontsize1,color:textcolor1}" >{{x.revenue| currency}}</td>
+         
+         <td *ngIf="col2=='revenue' && op2=='<' && x.revenue<val2" [ngStyle]="{'background-color':fontcolor2,'font-family':font2, 'font-size.px':fontsize2,color:textcolor2}">{{x.revenue|currency}}</td>
+         <td *ngIf="col2=='revenue' && op2=='>' && x.revenue>val2" [ngStyle]="{'background-color':fontcolor2,'font-family':font2, 'font-size.px':fontsize2,color:textcolor2}">{{x.revenue|currency}}</td>
+         <td *ngIf="col2=='revenue' && op2=='<=' && x.revenue<=val2" [ngStyle]="{'background-color':fontcolor2,'font-family':font2, 'font-size.px':fontsize2,color:textcolor2}">{{x.revenue|currency}}</td>
+         <td *ngIf="col2=='revenue' && op2=='=' && x.revenue==val2" [ngStyle]="{'background-color':fontcolor2,'font-family':font2, 'font-size.px':fontsize2,color:textcolor2}">{{x.revenue|currency}}</td>
+         <td *ngIf="col2=='revenue' && op2=='>=' && x.revenue>=val2; " [ngStyle]="{'background-color':fontcolor2,'font-family':font2, 'font-size.px':fontsize2,color:textcolor2}">{{x.revenue|currency}}</td>
+          </tr>
+    </table>
+  </ng-template>
+
+</body>
+</html>
