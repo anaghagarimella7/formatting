@@ -56,25 +56,32 @@ export class RevenueComponent implements OnInit {
  }
  onAlignSelect(event: Event){
   this.alignment=(<HTMLInputElement>event.target).value;
+  this.buttonFormatApply=false;
  }
  onThousandSelect(event: Event){
   this.thousandSeperator=(<HTMLInputElement>event.target).value;
+  this.buttonFormatApply=false;
  }
  onDecimalSelect(event: Event){
   this.decimalSeperator=(<HTMLInputElement>event.target).value;
+  this.buttonFormatApply=false;
  }
  onDecimalPlaceSelect(event: Event){
    console.log(event)
   this.decimalPlace=((<HTMLInputElement>event.target).value);
+  this.buttonFormatApply=false;
  }
  onCurrency(event:Event){
   this.currency=(<HTMLInputElement>event.target).value; 
+  this.buttonFormatApply=false;
  }
  onCurrencyAlignment(event:Event){
   this.currencyAlignment=(<HTMLInputElement>event.target).value; 
+  this.buttonFormatApply=false;
  }
  onFormatAsPercentage(event:Event){
    this.formatAsPercent=(<HTMLInputElement>event.target).value; 
+   this.buttonFormatApply=false;
  }
  onClickFormatApply(){
   this.buttonFormatApply=true;

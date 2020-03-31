@@ -31,6 +31,7 @@ export class CategoryComponent implements OnInit {
   }
   onAlignSelect(event:Event){
     this.alignment=(<HTMLInputElement>event.target).value; 
+    this.buttonFormatApply=false;
   }
   onClickFormatApply(){
     this.buttonFormatApply=true;

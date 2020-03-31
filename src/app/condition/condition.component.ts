@@ -55,6 +55,7 @@ export class ConditionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   onSubmit(){
     console.log('Submitted');
   }
@@ -151,18 +152,28 @@ this.buttonConditionApply=false;
   onClickColumn(event:Event){
     
     this.Col=(<HTMLInputElement>event.target).value; 
+    this.buttonConditionApply=false;
+
     console.log(event);
   }
   onFonts(event:Event){
     this.font=(<HTMLInputElement>event.target).value; 
+    this.buttonConditionApply=false;
+
   }
   onFontSizes(event:Event){
    this.fontsize=+(<HTMLInputElement>event.target).value; 
+   this.buttonConditionApply=false;
+
  }
  onFontColors(event:Event){
    this.fontcolor=(<HTMLInputElement>event.target).value; 
+   this.buttonConditionApply=false;
+
  }
  onTextColors(event:Event){
    this.textcolor=(<HTMLInputElement>event.target).value; 
+   this.buttonConditionApply=false;
+
  }
 }
